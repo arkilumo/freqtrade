@@ -1,33 +1,44 @@
 {
-    "trading_mode": "futures",
+    "trading_mode": "spot",
     "margin_mode": "isolated",
-    "max_open_trades": 5,
-    "stake_currency": "USDT",
-    "stake_amount": 200,
+    "max_open_trades": 3,
+    "stake_currency": "KRW",
+    "stake_amount": 30000,
     "tradable_balance_ratio": 1,
-    "fiat_display_currency": "USD",
-    "dry_run": true,
-    "timeframe": "3m",
-    "dry_run_wallet": 1000,
+    "fiat_display_currency": "KRW",
+    "dry_run": false,
+    "timeframe": "15m",
+    "dry_run_wallet": 10000,
     "cancel_open_orders_on_exit": true,
     "unfilledtimeout": {
         "entry": 10,
         "exit": 30
     },
+    "order_types": {
+        "entry": "market",
+        "exit": "market",
+        "emergency_exit": "market",
+        "force_entry": "market",
+        "force_exit": "market",
+        "stoploss": "market",
+        "stoploss_on_exchange": false,
+        "stoploss_on_exchange_interval": 60
+    },
     "exchange": {
-        "name": "binance",
-        "key": "",
-        "secret": "",
+        "name": "upbit",
+        "key": "aGFA4G3NmixdqGZe2n6xqC11ISDpx4uMxcTBFVCl",
+        "secret": "5BiaFnoKixiRkQx9NstyP9wXVVjXmyBVuHNvk6EZ",
         "ccxt_config": {},
         "ccxt_async_config": {},
         "pair_whitelist": [
-            "1INCH/USDT:USDT",
-            "ALGO/USDT:USDT"
+            "DOGE/KRW",
+            "BTC/KRW",
+            "XEC/KRW"
         ],
         "pair_blacklist": []
     },
     "entry_pricing": {
-        "price_side": "same",
+        "price_side": "other",
         "use_order_book": true,
         "order_book_top": 1,
         "price_last_balance": 0.0,
@@ -48,20 +59,16 @@
     ],
     "freqai": {
         "enabled": true,
-        "purge_old_models": 2,
-        "train_period_days": 15,
-        "backtest_period_days": 7,
+        "purge_old_models": 0,
+        "train_period_days": 7,
+        "backtest_period_days": 3,
         "live_retrain_hours": 0,
         "identifier": "unique-id",
         "feature_parameters": {
             "include_timeframes": [
-                "3m",
-                "15m",
-                "1h"
+                "15m"
             ],
             "include_corr_pairlist": [
-                "BTC/USDT:USDT",
-                "ETH/USDT:USDT"
             ],
             "label_period_candles": 20,
             "include_shifted_candles": 2,
